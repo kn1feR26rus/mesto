@@ -9,6 +9,8 @@ let inputProf = document.querySelector('.form__input_prof');
 
 function modal_opened() {
     modal.classList.add('modal_opened');
+    inputName.value = fullName.textContent;
+    inputProf.value = profession.textContent;
     }
 openModalButton.addEventListener('click', modal_opened);
     
