@@ -17,6 +17,10 @@
     box-shadow: none;
 }
 
+.form__close-button:hover {
+    opacity: .6;
+}
+
 @media all and (max-width: 550px) {
     .form__close-button {
        margin-left: 265px

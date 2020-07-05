@@ -11,8 +11,6 @@ openModalButton.addEventListener('click', () => {
 
 closeModalButton.addEventListener('click', () => {
     modal.classList.remove('modal_opened');
-
-
 })
 
 form.addEventListener('submit', (event) => {
