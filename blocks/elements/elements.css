@@ -1,9 +1,28 @@
 .elements {
-    max-width: 73.5%;
+    max-width: 882px;
     display: grid;
     justify-content: center;
     margin: 0 auto;
-    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    grid-template-columns: repeat(auto-fit, 282px);
     padding-top: 51px;
     grid-gap: 21px 18px;
+}
+
+
+
+@media all and (max-width: 860px) {
+    .elements {
+        padding-top: 0;
+        
+    }
+}
+
+
+@media all and (max-width: 320px) {
+    .elements {
+        max-width: 282px;
+        padding-top: 0;
+        grid-row-gap: 20px;
+        
+    }
 }

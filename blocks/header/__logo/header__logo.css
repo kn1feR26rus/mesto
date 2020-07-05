@@ -1,4 +1,11 @@
 
 .header__logo {
- max-width: 16.1%;
+    max-width: 16.1%;
+}
+
+@media all and (max-width: 860px) {
+    .header__logo {
+        max-width: 104px;
+        
+    }
 }

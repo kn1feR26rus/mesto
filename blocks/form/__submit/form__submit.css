@@ -1,0 +1,25 @@
+.form__submit {
+    width: 358px;
+    height: 50.15px;
+    margin: 0 auto;
+    margin-bottom: 36px;
+    margin-top: 18px;
+    padding: 0;
+    background: #000000;
+    border-radius: 2px;
+    color: white;
+    border: 0;
+    outline: none;
+    outline-offset: 0;
+    box-shadow: none;
+}
+
+.form__submit:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+@media all and (max-width: 550px) {
+    .form__submit {
+       width: 260px;
+    }
+}

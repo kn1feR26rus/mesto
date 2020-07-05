@@ -2,7 +2,13 @@
 
 .profile__info {
     display: flex;
-    flex-direction: column;
     color:#FFFFFF;
     padding-left: 30px;
+    
+}
+
+@media all and (max-width: 860px) {
+    .profile__info {
+        padding: 0;  
+    }
 }

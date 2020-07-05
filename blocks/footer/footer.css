@@ -1,0 +1,35 @@
+
+@import url(./__copyright/footer__copyright.css);
+
+.footer {
+    max-width: 882px;
+    margin: 0 auto;
+    color: #545454;
+    padding: 66px 0 60px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #545454;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .footer {
+        margin: 0 13.09%;
+    }
+}
+
+@media all and (max-width: 860px) {
+    .footer {
+        max-width: 69%;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .footer {
+        padding-top: 48px;
+        padding-bottom: 36px;
+    }
+}

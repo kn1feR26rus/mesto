@@ -1,0 +1,10 @@
+
+.profile__info-text {
+    flex-direction: column;
+}
+
+@media all and (max-width: 860px) {
+    .profile__info-text {
+        width: max-content;  
+    }
+}

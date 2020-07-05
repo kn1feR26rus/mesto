@@ -2,7 +2,11 @@
 
 .element__text {
     background-color: white;
-    height: 79px;
+    border-radius: 0 0 10px 10px;
     margin: 0;
-   
+    padding-top: 22px;
+    padding-left: 21px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
