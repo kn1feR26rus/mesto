@@ -4,22 +4,26 @@ const modal = document.querySelector('.modal');
 const form = document.querySelector('.form');
 let fullName = document.querySelector('.profile__fullname');
 let profession = document.querySelector('.profile__profession');
+let inputName = document.querySelector('.form__input_name');
+let inputProf = document.querySelector('.form__input_prof');
 
-openModalButton.addEventListener('click', () => {
+function modal_opened() {
     modal.classList.add('modal_opened');
-})
-
-closeModalButton.addEventListener('click', () => {
+    }
+openModalButton.addEventListener('click', modal_opened);
+    
+function modal_closed() {
     modal.classList.remove('modal_opened');
-})
+}
+closeModalButton.addEventListener('click', modal_closed);
 
-form.addEventListener('submit', (event) => {
+function save_form(event) {
     event.preventDefault();
-    let inputName = document.querySelector('.form__input_name');
-    let inputProf = document.querySelector('.form__input_prof');
-
     fullName.textContent = inputName.value;
     profession.textContent = inputProf.value;
+    modal_closed();
+}
+form.addEventListener('submit', save_form);
 
-    modal.classList.remove('modal_opened');
-})
+
+

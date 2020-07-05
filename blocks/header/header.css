@@ -28,8 +28,11 @@
 
 @media all and (max-width: 320px) {
     .header {
+        width: 320px;
+        max-width: 100%;
         padding-top: 28px;
         padding-bottom: 31px;
+        margin: 0;
         
     }
 }

@@ -22,70 +22,70 @@
                         <h1 class="profile__fullname">Жак-Ив Кусто</h1>
                         <p class="profile__profession">Исследователь океана</p>
                     </div>
-                    <input class="profile__edit-btn" type="button"></input>
+                    <button class="profile__edit-btn" type="button"></button>
                 </div>
-                <input class="profile__add-btn" type="button"></input>
+                <button class="profile__add-btn" type="button"></button>
             </section>
             <section class="elements">
                 <div class="element">
                     <img class="element__image" src="images/elements_karachaevsk.jpg" alt="Карачаевск"> 
                     <div class="element__bot">
-                        <p class="element__text">Карачаевск</p>
-                        <img class="element__like" src="images/element__like.svg" alt="Лайк">
+                        <h2 class="element__text">Карачаевск</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/elements_elbrus.jpg" alt="Эльбрус">
                     <div class="element__bot">
-                        <p class="element__text">Гора Эльбрус</p>
-                        <img class="element__like" src="images/element__like.svg" alt="Лайк">
+                        <h2 class="element__text">Гора Эльбрус</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/elements_dombai.jpg" alt="Домбай">
                     <div class="element__bot">
-                        <p class="element__text">Домбай</p>
-                        <img class="element__like" src="images/element__like.svg" alt="Лайк">
+                        <h2 class="element__text">Домбай</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/elements_elbrus.jpg" alt="Эльбрус">
                     <div class="element__bot">
-                        <p class="element__text">Гора Эльбрус</p>
-                        <img class="element__like" src="images/element__like.svg" alt="Лайк">
+                        <h2 class="element__text">Гора Эльбрус</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/elements_dombai.jpg" alt="Домбай">
                     <div class="element__bot">
-                        <p class="element__text">Домбай</p>
-                        <img class="element__like" src="images/element__like.svg" alt="Лайк">
+                        <h2 class="element__text">Домбай</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
                     <img class="element__image" src="images/elements_karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__bot">
-                        <p class="element__text">Карачаево-Черкессия</p>
-                        <img class="element__like" src="images/element__like.svg" alt="Лайк">
+                        <h2 class="element__text">Карачаево-Черкессия</h2>
+                        <button type="button" class="element__like"></button>
                     </div>
                 </div>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">
-                © 2020 Место Россия
+                &copy; 2020 Место Россия
             </p>
         </footer>
         <div class="modal">
-                <form action="#" class="form">
+                <form action="#" class="form" name="form">
                     <button class="form__close-button" type="button" ></button>
                     <h2 class="form__title">Редактировать профиль</h2>
-                    <input type="text" class="form__input form__input_name" value="Жак-Ив Кусто">
-                    <input type="text" class="form__input form__input_prof" value="Исследователь океана">
-                    <button class="form__submit"><p class="form__submit-text">Сохранить</p></button>
+                    <input type="text" class="form__input form__input_name" value="Жак-Ив Кусто" name="Полное имя" required placeholder="Ваше имя">
+                    <input type="text" class="form__input form__input_prof" value="Исследователь океана" name="Профессия" required placeholder="Ваша профессия">
+                    <button class="form__submit" type="submit">Сохранить</button>
                 </form>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="./js/index.js"></script>
 </body>
-
+</html>
