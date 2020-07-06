@@ -7,25 +7,23 @@ let profession = document.querySelector('.profile__profession');
 let inputName = document.querySelector('.form__input_name');
 let inputProf = document.querySelector('.form__input_prof');
 
-function modal_opened() {
+function modalOpened() {
     modal.classList.add('modal_opened');
     inputName.value = fullName.textContent;
     inputProf.value = profession.textContent;
     }
-openModalButton.addEventListener('click', modal_opened);
-    
-function modal_closed() {
+
+function modalClosed() {
     modal.classList.remove('modal_opened');
 }
-closeModalButton.addEventListener('click', modal_closed);
 
-function save_form(event) {
+function saveForm(event) {
     event.preventDefault();
     fullName.textContent = inputName.value;
     profession.textContent = inputProf.value;
-    modal_closed();
+    modalClosed();
 }
-form.addEventListener('submit', save_form);
 
-
-
+openModalButton.addEventListener('click', modalOpened);
+closeModalButton.addEventListener('click', modalClosed);
+form.addEventListener('submit', saveForm);
