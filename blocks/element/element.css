@@ -4,6 +4,7 @@
 @import url(./__image/element__image.css);
 @import url(./__bot/element__bot.css);
 @import url(./__like/element__like.css);
+@import url(./__delete/element__delete.css);
 
 
 .element {
@@ -11,5 +12,7 @@
     border-radius: 10px;
     font-family: 'Inter', ‘Arial’, sans-serif;
     font-style: normal;
+    position: relative;
+    
 }
 

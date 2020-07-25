@@ -24,17 +24,20 @@
                     </div>
                     <button class="profile__edit-btn" type="button"></button>
                 </div>
-                <button class="profile__add-btn" type="button"></button>
+                <button class="profile__add-btn" id="addbtn" type="button"></button>
             </section>
             <section class="elements">
+                <!--
                 <div class="element">
-                    <img class="element__image" src="images/elements_karachaevsk.jpg" alt="Карачаевск"> 
+                    <button type="button" class="element__delete"></button>
+                    <img class="element__image" src="images/elements_karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__bot">
                         <h2 class="element__text">Карачаевск</h2>
                         <button type="button" class="element__like"></button>
                     </div>
                 </div>
                 <div class="element">
+                    <button type="button" class="element__delete"></button>
                     <img class="element__image" src="images/elements_elbrus.jpg" alt="Эльбрус">
                     <div class="element__bot">
                         <h2 class="element__text">Гора Эльбрус</h2>
@@ -42,6 +45,7 @@
                     </div>
                 </div>
                 <div class="element">
+                    <button type="button" class="element__delete"></button>
                     <img class="element__image" src="images/elements_dombai.jpg" alt="Домбай">
                     <div class="element__bot">
                         <h2 class="element__text">Домбай</h2>
@@ -49,6 +53,7 @@
                     </div>
                 </div>
                 <div class="element">
+                    <button type="button" class="element__delete"></button>
                     <img class="element__image" src="images/elements_elbrus.jpg" alt="Эльбрус">
                     <div class="element__bot">
                         <h2 class="element__text">Гора Эльбрус</h2>
@@ -56,6 +61,7 @@
                     </div>
                 </div>
                 <div class="element">
+                    <button type="button" class="element__delete"></button>
                     <img class="element__image" src="images/elements_dombai.jpg" alt="Домбай">
                     <div class="element__bot">
                         <h2 class="element__text">Домбай</h2>
@@ -63,12 +69,14 @@
                     </div>
                 </div>
                 <div class="element">
+                    <button type="button" class="element__delete"></button>
                     <img class="element__image" src="images/elements_karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__bot">
                         <h2 class="element__text">Карачаево-Черкессия</h2>
                         <button type="button" class="element__like"></button>
                     </div>
                 </div>
+                -->
             </section>
         </main>
         <footer class="footer">
@@ -85,7 +93,26 @@
                     <button class="form__submit" type="submit">Сохранить</button>
                 </form>
         </div>
+        <div class="addmodal">
+            <form action="#" class="addform" name="addform">
+                <button class="addform__close-button" type="button" ></button>
+                <h2 class="addform__title">Новое место</h2>
+                <input type="text" class="addform__input addform__input_place" value="" name="place" required placeholder="Название">
+                <input type="text" class="addform__input addform__input_link" value="" name="link" required placeholder="Ссылка на картинку">
+                <button class="addform__submit" type="submit">Создать</button>
+            </form>
+        </div>
     </div>
+    <template class="template">
+        <div class="element">
+            <button type="button" class="element__delete"></button>
+            <img class="element__image">
+            <div class="element__bot">
+                <h2 class="element__text"></h2>
+                <button type="button" class="element__like"></button>
+            </div>
+        </div>
+    </template>
     <script src="./js/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+@import url(./__title/addform__title.css);
+@import url(./__close-button/addform__close-button.css);
+@import url(./__input/addform__input.css);
+@import url(./__submit/addform__submit.css);
+@import url(./__submit-text/addform__submit-text.css);
+
+.addform {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 430px;
+    background-color: white;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-style: normal;
+}
+
+@media all and (max-width: 550px) {
+    .addform {
+       width: 280px;
+    }
+}
