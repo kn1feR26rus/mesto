@@ -19,6 +19,7 @@ const addForm = document.querySelector('.addform');
 let addPlace = document.querySelector('.addform__input_place');
 let addLink = document.querySelector('.addform__input_link');
 
+
 // ДЕЙСТВИЯ ПРОФАЙЛА
 function modalOpened() {
     modal.classList.add('modal_opened');
@@ -56,9 +57,10 @@ closeAddButton.addEventListener('click', addModalClosed);
 
 
 const els = document.querySelector('.elements');
-const elInput = document.querySelector('.element__text');
-const elImage = document.querySelector('.element__image');
-const elSubmit = document.querySelector('.addform__submit');
+const el = document.querySelector('.element');
+const elInput = els.querySelector('.element__text');
+const elImage = els.querySelector('.element__image');
+const elSubmit = els.querySelector('.addform__submit');
 const elTemplate = document.querySelector('.template')
 
 const elements = [
@@ -93,12 +95,25 @@ const elList = () => {
     els.append(... items);
 };
 
+const handleRemove = evt => {
+    evt.target.closest('.element').remove();
+}
+
+
 
 const getItem = data => {
     const elCard = elTemplate.content.cloneNode(true);
+    const elDelete = elCard.querySelector('.element__delete');
+    const elLike = elCard.querySelector('.element__like');
+    const handleLike = evt => {
+        evt.target.classList.toggle('element__like_black');
+    }
     elCard.querySelector('.element__text').innerText = data.title;
     elCard.querySelector('.element__image').setAttribute('src', data.link);
+    elDelete.addEventListener('click', handleRemove);
+    elLike.addEventListener('click', handleLike);
     return elCard;
+    
 }
 
 const bindHandlers = () => {
@@ -113,6 +128,7 @@ const bindHandlers = () => {
     })
     
 }
+
 
 
 elList();
