@@ -1,8 +1,8 @@
 
 .imgmodal__close-button {
     position: absolute;
-    top: 300;
-    right: 100;
+    top: -35px;
+    right: -35px;
     background-image: url(../../../images/close_icon.svg);
     width: 41px;
     height: 41px;

@@ -118,11 +118,13 @@ const getItem = data => {
     const elImg = elCard.querySelector('.element__image');
     const imgModal = document.querySelector('.imgmodal');
     const imgClose = document.querySelector('.imgmodal__close-button');
+    const imgTitle = document.querySelector('.imgmodal__title');
     
     
     
     const handleImg = evt => {
         imgModal.querySelector('.imgmodal__img').setAttribute('src', data.link);
+        imgTitle.textContent = data.title;
         imgModal.classList.add('imgmodal_opened');
     }
     const deleteImg = evt => {
