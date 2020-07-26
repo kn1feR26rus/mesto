@@ -16,3 +16,9 @@
        width: 260px;
     }
 }
+
+@media all and (max-width: 320px) {
+    .form__input {
+       width: 200px;
+    }
+}

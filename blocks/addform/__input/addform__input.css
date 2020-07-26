@@ -16,3 +16,10 @@
        width: 260px;
     }
 }
+
+@media all and (max-width: 320px) {
+    .addform__input {
+       width: 200px;
+       margin-bottom: 20px;
+    }
+}

@@ -26,3 +26,14 @@
        width: 260px;
     }
 }
+
+@media all and (max-width: 320px) {
+    .addform__submit {
+        font-size: 14px;
+        line-height: 17px;
+       width: 200px;
+       height: 40px;
+       margin-top: 16px;
+       margin-bottom: 30px;
+    }
+}

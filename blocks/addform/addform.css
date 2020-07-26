@@ -21,3 +21,10 @@
        width: 280px;
     }
 }
+
+@media all and (max-width: 320px) {
+    .addform {
+       width: 240px;
+       height: 258px;
+    }
+}

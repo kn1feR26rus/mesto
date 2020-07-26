@@ -9,7 +9,6 @@ let profession = document.querySelector('.profile__profession');
 let inputName = document.querySelector('.form__input_name');
 let inputProf = document.querySelector('.form__input_prof');
 
-
 //ПЕРЕМЕНКИ СОЗДАНИЯ КАРТОЧКИ
 const openAddButton = document.querySelector('.profile__add-btn');
 const closeAddButton = document.querySelector('.addform__close-button');
@@ -18,9 +17,6 @@ const addModal = document.querySelector('.addmodal');
 const addForm = document.querySelector('.addform');
 let addPlace = document.querySelector('.addform__input_place');
 let addLink = document.querySelector('.addform__input_link');
-
-
-
 
 // ДЕЙСТВИЯ ПРОФАЙЛА
 function modalOpened() {
@@ -44,7 +40,6 @@ openModalButton.addEventListener('click', modalOpened);
 closeModalButton.addEventListener('click', modalClosed);
 form.addEventListener('submit', saveForm);
 
-
 //ДЕЙСТВИЯ ДОБАВЛЕНИЯ КАРТОЧКИ
 function addModalOpened() {
     addModal.classList.add('addmodal_opened');
@@ -52,11 +47,12 @@ function addModalOpened() {
 
 function addModalClosed() {
     addModal.classList.remove('addmodal_opened');
+    addPlace.value = '';
+    addLink.value = '';
 }
 
 openAddButton.addEventListener('click', addModalOpened);
 closeAddButton.addEventListener('click', addModalClosed);
-
 
 const els = document.querySelector('.elements');
 const el = document.querySelector('.element');
@@ -100,8 +96,6 @@ const handleRemove = evt => {
     evt.target.closest('.element').remove();
 }
 
-
-
 const getItem = data => {
     const elCard = elTemplate.content.cloneNode(true);
     const elDelete = elCard.querySelector('.element__delete');
@@ -109,7 +103,6 @@ const getItem = data => {
     const handleLike = evt => {
         evt.target.classList.toggle('element__like_black');
     }
-
     elCard.querySelector('.element__text').innerText = data.title;
     elCard.querySelector('.element__image').setAttribute('src', data.link);
     elDelete.addEventListener('click', handleRemove);
@@ -119,9 +112,6 @@ const getItem = data => {
     const imgModal = document.querySelector('.imgmodal');
     const imgClose = document.querySelector('.imgmodal__close-button');
     const imgTitle = document.querySelector('.imgmodal__title');
-    
-    
-    
     const handleImg = evt => {
         imgModal.querySelector('.imgmodal__img').setAttribute('src', data.link);
         imgTitle.textContent = data.title;
@@ -130,10 +120,8 @@ const getItem = data => {
     const deleteImg = evt => {
         imgModal.classList.remove('imgmodal_opened');
     }
-
     elImg.addEventListener('click', handleImg);
     imgClose.addEventListener('click', deleteImg);
-
     return elCard;
 }
 
@@ -147,12 +135,7 @@ const bindHandlers = () => {
         els.prepend(item);
         addModalClosed()
     })
-    
 }
-
-//ПЕРЕМЕНКИ ОТКРЫТИЯ КАРТОЧКИ
-
-
 
 elList();
 bindHandlers();

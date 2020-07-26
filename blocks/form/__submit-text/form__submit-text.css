@@ -8,3 +8,15 @@
     color: #FFFFFF;
     margin: 0 auto;
 }
+
+
+@media all and (max-width: 320px) {
+    .form__submit-text {
+        width: 200px;
+        height: 40px;
+        
+font-size: 14px;
+line-height: 17px;
+
+    }
+}

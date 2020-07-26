@@ -21,3 +21,9 @@
        width: 280px;
     }
 }
+
+@media all and (max-width: 320px) {
+    .form {
+       width: 240px;
+    }
+}
