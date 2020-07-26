@@ -20,6 +20,8 @@ let addPlace = document.querySelector('.addform__input_place');
 let addLink = document.querySelector('.addform__input_link');
 
 
+
+
 // ДЕЙСТВИЯ ПРОФАЙЛА
 function modalOpened() {
     modal.classList.add('modal_opened');
@@ -59,7 +61,6 @@ closeAddButton.addEventListener('click', addModalClosed);
 const els = document.querySelector('.elements');
 const el = document.querySelector('.element');
 const elInput = els.querySelector('.element__text');
-const elImage = els.querySelector('.element__image');
 const elSubmit = els.querySelector('.addform__submit');
 const elTemplate = document.querySelector('.template')
 
@@ -108,12 +109,30 @@ const getItem = data => {
     const handleLike = evt => {
         evt.target.classList.toggle('element__like_black');
     }
+
     elCard.querySelector('.element__text').innerText = data.title;
     elCard.querySelector('.element__image').setAttribute('src', data.link);
     elDelete.addEventListener('click', handleRemove);
     elLike.addEventListener('click', handleLike);
-    return elCard;
     
+    const elImg = elCard.querySelector('.element__image');
+    const imgModal = document.querySelector('.imgmodal');
+    const imgClose = document.querySelector('.imgmodal__close-button');
+    
+    
+    
+    const handleImg = evt => {
+        imgModal.querySelector('.imgmodal__img').setAttribute('src', data.link);
+        imgModal.classList.add('imgmodal_opened');
+    }
+    const deleteImg = evt => {
+        imgModal.classList.remove('imgmodal_opened');
+    }
+
+    elImg.addEventListener('click', handleImg);
+    imgClose.addEventListener('click', deleteImg);
+
+    return elCard;
 }
 
 const bindHandlers = () => {
@@ -129,7 +148,12 @@ const bindHandlers = () => {
     
 }
 
+//ПЕРЕМЕНКИ ОТКРЫТИЯ КАРТОЧКИ
+
 
 
 elList();
 bindHandlers();
+
+
+

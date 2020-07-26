@@ -13,3 +13,6 @@
 @import url(../blocks/addmodal/addmodal.css);
 @import url(../blocks/addmodal/_opened/addmodal_opened.css);
 @import url(../blocks/addform/addform.css);
+@import url(../blocks/imgmodal/imgmodal.css);
+@import url(../blocks/imgform/imgform.css);
+@import url(../blocks/imgmodal/_opened/imgmodal_opened.css);
