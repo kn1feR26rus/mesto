@@ -4,10 +4,10 @@ const openModalButton = document.querySelector('.profile__edit-btn');
 const closeModalButton = document.querySelector('.form__close-button');
 const modal = document.querySelector('.modal');
 const form = document.querySelector('.form');
-let fullName = document.querySelector('.profile__fullname');
-let profession = document.querySelector('.profile__profession');
-let inputName = document.querySelector('.form__input_name');
-let inputProf = document.querySelector('.form__input_prof');
+const fullName = document.querySelector('.profile__fullname');
+const profession = document.querySelector('.profile__profession');
+const inputName = document.querySelector('.form__input_name');
+const inputProf = document.querySelector('.form__input_prof');
 
 //ПЕРЕМЕНКИ СОЗДАНИЯ КАРТОЧКИ
 const openAddButton = document.querySelector('.profile__add-btn');
@@ -15,19 +15,30 @@ const closeAddButton = document.querySelector('.addform__close-button');
 const creatAddButton = document.querySelector('.addform__submit');
 const addModal = document.querySelector('.addmodal');
 const addForm = document.querySelector('.addform');
-let addPlace = document.querySelector('.addform__input_place');
-let addLink = document.querySelector('.addform__input_link');
+const addPlace = document.querySelector('.addform__input_place');
+const addLink = document.querySelector('.addform__input_link');
 
-// ДЕЙСТВИЯ ПРОФАЙЛА
+// ФУНКЦИЯ ОТКРЫТИЯ МОДАЛОК
 function modalOpened() {
+    //модалка профиля
     modal.classList.add('modal_opened');
     inputName.value = fullName.textContent;
     inputProf.value = profession.textContent;
+
+    //модалка добавления карточки
+    addModal.classList.add('addmodal_opened');
     }
 
+// ФУНКЦИЯ ЗАКРЫТИЯ МОДАЛОК
+
 function modalClosed() {
+    //модалка профиля
     modal.classList.remove('modal_opened');
+
+    //модалка добавления карточки
+    addModal.classList.remove('addmodal_opened');
 }
+
 
 function saveForm(event) {
     event.preventDefault();
@@ -36,29 +47,17 @@ function saveForm(event) {
     modalClosed();
 }
 
+// ВЫПОЛНЕНИЕ МОДАЛОК
+
 openModalButton.addEventListener('click', modalOpened);
 closeModalButton.addEventListener('click', modalClosed);
 form.addEventListener('submit', saveForm);
 
-//ДЕЙСТВИЯ ДОБАВЛЕНИЯ КАРТОЧКИ
-function addModalOpened() {
-    addModal.classList.add('addmodal_opened');
-    }
+openAddButton.addEventListener('click', modalOpened);
+closeAddButton.addEventListener('click', modalClosed);
 
-function addModalClosed() {
-    addModal.classList.remove('addmodal_opened');
-    addPlace.value = '';
-    addLink.value = '';
-}
-
-openAddButton.addEventListener('click', addModalOpened);
-closeAddButton.addEventListener('click', addModalClosed);
-
-const els = document.querySelector('.elements');
-const el = document.querySelector('.element');
-const elInput = els.querySelector('.element__text');
-const elSubmit = els.querySelector('.addform__submit');
-const elTemplate = document.querySelector('.template')
+const elementsBlock = document.querySelector('.elements');
+const Template = document.querySelector('.template')
 
 const elements = [
     {
@@ -87,9 +86,9 @@ const elements = [
     }
 ];
 
-const elList = () => {
+const Cards = () => {
     const items = elements.map(el => getItem(el));
-    els.append(... items);
+    elementsBlock.append(... items);
 };
 
 const handleRemove = evt => {
@@ -97,23 +96,27 @@ const handleRemove = evt => {
 }
 
 const getItem = data => {
-    const elCard = elTemplate.content.cloneNode(true);
+    const elCard = Template.content.cloneNode(true);
     const elDelete = elCard.querySelector('.element__delete');
     const elLike = elCard.querySelector('.element__like');
+    const elImg = elCard.querySelector('.element__image');
+    const elTitle = elCard.querySelector('.element__text');
     const handleLike = evt => {
         evt.target.classList.toggle('element__like_black');
     }
-    elCard.querySelector('.element__text').innerText = data.title;
-    elCard.querySelector('.element__image').setAttribute('src', data.link);
+    elTitle.innerText = data.title;
+    elImg.src = data.link;
     elDelete.addEventListener('click', handleRemove);
     elLike.addEventListener('click', handleLike);
     
-    const elImg = elCard.querySelector('.element__image');
+    
     const imgModal = document.querySelector('.imgmodal');
     const imgClose = document.querySelector('.imgmodal__close-button');
     const imgTitle = document.querySelector('.imgmodal__title');
+    const openedImg = imgModal.querySelector('.imgmodal__img');
     const handleImg = evt => {
-        imgModal.querySelector('.imgmodal__img').setAttribute('src', data.link);
+        openedImg.setAttribute('src', data.link);
+        openedImg.setAttribute('alt', data.title);
         imgTitle.textContent = data.title;
         imgModal.classList.add('imgmodal_opened');
     }
@@ -132,13 +135,10 @@ const bindHandlers = () => {
             title: addPlace.value,
             link: addLink.value
         });
-        els.prepend(item);
-        addModalClosed()
+        elementsBlock.prepend(item);
+        modalClosed()
     })
 }
 
-elList();
+Cards();
 bindHandlers();
-
-
-
