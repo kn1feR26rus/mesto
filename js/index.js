@@ -18,47 +18,43 @@ const addForm = document.querySelector('.addform');
 const addPlace = document.querySelector('.addform__input_place');
 const addLink = document.querySelector('.addform__input_link');
 
-// ФУНКЦИЯ ОТКРЫТИЯ МОДАЛОК
-function modalOpened() {
-    //модалка профиля
-    modal.classList.add('modal_opened');
-    inputName.value = fullName.textContent;
-    inputProf.value = profession.textContent;
-
-    //модалка добавления карточки
-    addModal.classList.add('addmodal_opened');
+// ФУНКЦИЯ ОТКРЫТИЯ/ЗАКРЫТИЯ МОДАЛОК
+function toggleModalVisible(tmodal) {
+    tmodal.classList.toggle('modalopened');
     }
 
-// ФУНКЦИЯ ЗАКРЫТИЯ МОДАЛОК
+// ВЫПОЛНЕНИЕ МОДАЛКИ ПРОФИЛЯ
+openModalButton.addEventListener('click', () => {
+    toggleModalVisible(modal);
+    inputName.value = fullName.textContent;
+    inputProf.value = profession.textContent;
+});
 
-function modalClosed() {
-    //модалка профиля
-    modal.classList.remove('modal_opened');
-
-    //модалка добавления карточки
-    addModal.classList.remove('addmodal_opened');
-}
-
+closeModalButton.addEventListener('click', () => {
+    toggleModalVisible(modal);
+});
 
 function saveForm(event) {
     event.preventDefault();
     fullName.textContent = inputName.value;
     profession.textContent = inputProf.value;
-    modalClosed();
+    toggleModalVisible(modal);
 }
 
-// ВЫПОЛНЕНИЕ МОДАЛОК
-
-openModalButton.addEventListener('click', modalOpened);
-closeModalButton.addEventListener('click', modalClosed);
 form.addEventListener('submit', saveForm);
 
-openAddButton.addEventListener('click', modalOpened);
-closeAddButton.addEventListener('click', modalClosed);
+//ВЫПОЛНЕНИЕ МОДАЛКИ ДОБАВЛЕНИЯ КАРТОЧКИ
+openAddButton.addEventListener('click', () => {
+    toggleModalVisible(addModal); 
+});
+
+closeAddButton.addEventListener('click', () => {
+    toggleModalVisible(addModal);
+});
+
 
 const elementsBlock = document.querySelector('.elements');
-const Template = document.querySelector('.template')
-
+const Template = document.querySelector('.template');
 const elements = [
     {
         title: 'Архыз',
@@ -104,29 +100,30 @@ const getItem = data => {
     const handleLike = evt => {
         evt.target.classList.toggle('element__like_black');
     }
+
     elTitle.innerText = data.title;
     elImg.src = data.link;
     elDelete.addEventListener('click', handleRemove);
     elLike.addEventListener('click', handleLike);
-    
-    
-    const imgModal = document.querySelector('.imgmodal');
-    const imgClose = document.querySelector('.imgmodal__close-button');
+
+    //МОДАЛКА ИЗОБРАЖЕНИЯ
     const imgTitle = document.querySelector('.imgmodal__title');
     const openedImg = imgModal.querySelector('.imgmodal__img');
     const handleImg = evt => {
         openedImg.setAttribute('src', data.link);
         openedImg.setAttribute('alt', data.title);
         imgTitle.textContent = data.title;
-        imgModal.classList.add('imgmodal_opened');
-    }
-    const deleteImg = evt => {
-        imgModal.classList.remove('imgmodal_opened');
+        toggleModalVisible(imgModal);
     }
     elImg.addEventListener('click', handleImg);
-    imgClose.addEventListener('click', deleteImg);
     return elCard;
 }
+
+const imgModal = document.querySelector('.imgmodal');
+const imgClose = document.querySelector('.imgmodal__close-button');
+imgClose.addEventListener('click', () => {
+    toggleModalVisible(imgModal);
+});
 
 const bindHandlers = () => {
     addForm.addEventListener('submit', (event) => {
@@ -136,7 +133,7 @@ const bindHandlers = () => {
             link: addLink.value
         });
         elementsBlock.prepend(item);
-        modalClosed()
+        toggleModalVisible(addModal);
     })
 }
 

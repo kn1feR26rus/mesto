@@ -8,10 +8,8 @@
 @import url(../blocks/element/element.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/modal/modal.css);
-@import url(../blocks/modal/_opened/modal_opened.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/addmodal/addmodal.css);
-@import url(../blocks/addmodal/_opened/addmodal_opened.css);
 @import url(../blocks/addform/addform.css);
 @import url(../blocks/imgmodal/imgmodal.css);
-@import url(../blocks/imgmodal/_opened/imgmodal_opened.css);
+@import url(../blocks/modalopened/modalopened.css);
