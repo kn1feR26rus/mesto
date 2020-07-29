@@ -84,7 +84,7 @@ const elements = [
     }
 ];
 
-const Cards = () => {
+const renderCards = () => {
     const items = elements.map(el => getItem(el));
     elementsBlock.append(... items);
 };
@@ -140,5 +140,5 @@ const bindHandlers = () => {
     })
 }
 
-Cards();
+renderCards();
 bindHandlers();
