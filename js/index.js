@@ -46,6 +46,8 @@ form.addEventListener('submit', saveForm);
 //ВЫПОЛНЕНИЕ МОДАЛКИ ДОБАВЛЕНИЯ КАРТОЧКИ
 openAddButton.addEventListener('click', () => {
     toggleModalVisible(addModal); 
+    addPlace.value = '';
+    addLink.value = '';
 });
 
 closeAddButton.addEventListener('click', () => {
@@ -103,6 +105,7 @@ const getItem = data => {
 
     elTitle.innerText = data.title;
     elImg.src = data.link;
+    elImg.alt = data.title;
     elDelete.addEventListener('click', handleRemove);
     elLike.addEventListener('click', handleLike);
 
