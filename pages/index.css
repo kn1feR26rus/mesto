@@ -13,3 +13,5 @@
 @import url(../blocks/addform/addform.css);
 @import url(../blocks/imgmodal/imgmodal.css);
 @import url(../blocks/modalopened/modalopened.css);
+@import url(../blocks/form/__submit-button/_disabled/form__submit-button_disabled.css);
+

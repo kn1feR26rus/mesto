@@ -18,10 +18,35 @@ const addForm = document.querySelector('.addform');
 const addPlace = document.querySelector('.addform__input_place');
 const addLink = document.querySelector('.addform__input_link');
 
+
+// ЗАКРЫТИЕ ПОПАПА НА МОДАЛКУ
+
 // ФУНКЦИЯ ОТКРЫТИЯ/ЗАКРЫТИЯ МОДАЛОК
 function toggleModalVisible(tmodal) {
     tmodal.classList.toggle('modalopened');
+    const closeByKey = evt => {
+        console.log(evt);
+        if(evt.key === 'Escape') {
+            tmodal.classList.remove('modalopened');
+            document.body.removeEventListener('keydown', closeByKey);
+        }
+        
     }
+    document.body.addEventListener('keydown', closeByKey);
+};
+
+
+    
+
+const modalCloseAll = event => {
+    if(event.target.classList.contains('modalopened')) {
+        event.target.classList.remove('modalopened');
+    }
+};
+
+
+
+window.onclick = modalCloseAll;
 
 // ВЫПОЛНЕНИЕ МОДАЛКИ ПРОФИЛЯ
 openModalButton.addEventListener('click', () => {

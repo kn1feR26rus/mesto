@@ -1,0 +1,11 @@
+.form__error_visible {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    margin-left: 36px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    }

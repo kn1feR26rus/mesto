@@ -22,9 +22,9 @@
                         <h1 class="profile__fullname">Жак-Ив Кусто</h1>
                         <p class="profile__profession">Исследователь океана</p>
                     </div>
-                    <button class="profile__edit-btn" type="button"></button>
+                    <button class="profile__edit-btn open-modal-btn" type="button"></button>
                 </div>
-                <button class="profile__add-btn" id="addbtn" type="button"></button>
+                <button class="profile__add-btn open-modal-btn" id="addbtn" type="button"></button>
             </section>
             <section class="elements">
             </section>
@@ -35,21 +35,26 @@
             </p>
         </footer>
         <div class="modal">
-                <form action="#" class="form" name="form">
-                    <button class="form__close-button" type="button" ></button>
-                    <h2 class="form__title">Редактировать профиль</h2>
-                    <input type="text" class="form__input form__input_name" value="" name="fullname" required placeholder="Ваше имя">
-                    <input type="text" class="form__input form__input_prof" value="" name="job" required placeholder="Ваша профессия">
-                    <button class="form__submit" type="submit">Сохранить</button>
+                <form action="#" class="form form__valid" name="form">
+                        <button class="form__close-button" type="button" ></button>
+                        <h2 class="form__title">Редактировать профиль</h2>
+                        <input type="text" class="form__input form__input_name" value="" id="input_name" name="fullname" required placeholder="Ваше имя" minlength="2" maxlength="40">
+                        <span class="form__error_visible" id="input_name-error"></span>
+                        <input type="text" class="form__input form__input_prof" value="" id="input_prof" name="job" required placeholder="Ваша профессия" minlength="2" maxlength="200">
+                        <span class="form__error_visible" id="input_prof-error"></span>
+                        <button class="form__submit form__submit-button" type="submit">Сохранить</button>
+                    </fieldset>
                 </form>
         </div>
         <div class="addmodal">
-            <form action="#" class="addform" name="addform">
-                <button class="addform__close-button" type="button" ></button>
-                <h2 class="addform__title">Новое место</h2>
-                <input type="text" class="addform__input addform__input_place" value="" name="place" required placeholder="Название">
-                <input type="text" class="addform__input addform__input_link" value="" name="link" required placeholder="Ссылка на картинку">
-                <button class="addform__submit" type="submit">Создать</button>
+            <form action="#" class="addform form__valid" name="addform">
+                    <button class="addform__close-button" type="button" ></button>
+                    <h2 class="addform__title">Новое место</h2>
+                    <input type="text" class="addform__input addform__input_place form__input" value="" id="input_place" name="place" required placeholder="Название" minlength="1" maxlength="30">
+                    <span class='form__error_visible' id="input_place-error"></span>
+                    <input type="url" class="addform__input addform__input_link form__input" value="" id="input_link" name="link" required placeholder="Ссылка на картинку">
+                    <span class='form__error_visible' id="input_link-error"></span>
+                    <button class="addform__submit form__submit-button" type="submit">Создать</button>
             </form>
         </div>
         <div class="imgmodal">
@@ -71,5 +76,6 @@
         </div>
     </template>
     <script src="./js/index.js"></script>
+    <script src="./js/validate.js"></script>
 </body>
 </html>
