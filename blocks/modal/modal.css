@@ -1,5 +1,6 @@
 
 @import url(./__form/modal__form.css);
+@import url(./_opened/modal_opened.css);
 
 .modal {
     position: fixed;
