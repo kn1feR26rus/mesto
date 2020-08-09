@@ -11,7 +11,7 @@ const inputProf = document.querySelector('.form__input_prof');
 
 //ПЕРЕМЕНКИ СОЗДАНИЯ КАРТОЧКИ
 const openAddButton = document.querySelector('.profile__add-btn');
-const closeAddButton = document.querySelector('.addform__close-button');
+const closeAddButton = document.getElementById('add-close-button');
 const creatAddButton = document.querySelector('.addform__submit');
 const addModal = document.getElementById('addmodal');
 const addForm = document.querySelector('.addform');
