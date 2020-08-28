@@ -1,4 +1,5 @@
 
+
 //ПЕРЕМЕНКИ ПРОФАЙЛА
 const openModalButton = document.querySelector('.profile__edit-btn');
 const closeModalButton = document.querySelector('.form__close-button');
@@ -110,11 +111,11 @@ const renderCards = () => {
     const items = elements.map(el => getItem(el));
     elementsBlock.append(...items);
 };
-
+/*
 const handleRemove = evt => {
     evt.target.closest('.element').remove();
 };
-
+*/
 const getItem = data => {
     const elCard = Template.content.cloneNode(true);
     const elDelete = elCard.querySelector('.element__delete');
