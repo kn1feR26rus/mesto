@@ -1,4 +1,5 @@
-
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
 //ПЕРЕМЕНКИ ПРОФАЙЛА
 const openModalButton = document.querySelector('.profile__edit-btn');
@@ -9,6 +10,19 @@ const fullName = document.querySelector('.profile__fullname');
 const profession = document.querySelector('.profile__profession');
 const inputName = document.querySelector('.form__input_name');
 const inputProf = document.querySelector('.form__input_prof');
+
+const settings = {
+    formSelector: '.form__valid',
+    inputSelector: '.form__input',
+    openModalSelector: '.open-modal-btn',
+    submitButtonSelector: '.form__submit-button',
+    inactiveButtonClass: 'form__submit-button_disabled',
+    inputErrorClass: 'form__input_type_error',
+    errorClass: 'form__error_visible'
+    }
+
+const createCardForm = document.querySelector('.form');
+const createCardAddForm = document.querySelector('.addform');
 
 //ПЕРЕМЕНКИ СОЗДАНИЯ КАРТОЧКИ
 const openAddButton = document.querySelector('.profile__add-btn');
@@ -111,38 +125,10 @@ const renderCards = () => {
     const items = elements.map(el => getItem(el));
     elementsBlock.append(...items);
 };
-/*
-const handleRemove = evt => {
-    evt.target.closest('.element').remove();
-};
-*/
+
 const getItem = data => {
-    const elCard = Template.content.cloneNode(true);
-    const elDelete = elCard.querySelector('.element__delete');
-    const elLike = elCard.querySelector('.element__like');
-    const elImg = elCard.querySelector('.element__image');
-    const elTitle = elCard.querySelector('.element__text');
-    const handleLike = evt => {
-        evt.target.classList.toggle('element__like_black');
-    }
-
-    elTitle.innerText = data.title;
-    elImg.src = data.link;
-    elImg.alt = data.title;
-    elDelete.addEventListener('click', handleRemove);
-    elLike.addEventListener('click', handleLike);
-
-    //МОДАЛКА ИЗОБРАЖЕНИЯ
-    const imgTitle = document.querySelector('.imgmodal__title');
-    const openedImg = imgModal.querySelector('.imgmodal__img');
-    const handleImg = evt => {
-        openedImg.setAttribute('src', data.link);
-        openedImg.setAttribute('alt', data.title);
-        imgTitle.textContent = data.title;
-        toggleModalVisible(imgModal);
-    }
-    elImg.addEventListener('click', handleImg);
-    return elCard;
+    const card = new Card(data, '.template', imgModal, toggleModalVisible);
+    return card.createCard();
 };
 
 const imgModal = document.getElementById('imgmodal');
@@ -162,6 +148,12 @@ const bindHandlers = () => {
         toggleModalVisible(addModal);
     })
 };
+
+const formValidator = new FormValidator(settings, form);
+const addFormValidator = new FormValidator(settings, addForm);
+
+formValidator.enableValidation();
+addFormValidator.enableValidation();
 
 renderCards();
 bindHandlers();

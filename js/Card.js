@@ -4,6 +4,7 @@ export class Card {
         this.templateSelector = templateSelector;
         this.imgModal = imgModal;
         this.toggleModalVisible = toggleModalVisible;
+        
     }
 
     _handleLike(evt){
@@ -22,9 +23,15 @@ export class Card {
     };
 
     _setEventListeners() {
-        this.elDelete.addEventListener('click', this._handleRemove);
-        this.elLike.addEventListener('click', this._handleLike);
-        this.elImg.addEventListener('click', this._handleImg);
+        this.elDelete.addEventListener('click', (evt) => {
+            this._handleRemove(evt);
+        });
+        this.elLike.addEventListener('click', (evt) => {
+            this._handleLike(evt);
+        });
+        this.elImg.addEventListener('click', (evt) => {
+            this._handleImg(evt);
+        });
     }
 
     createCard() {
@@ -44,10 +51,10 @@ export class Card {
         //МОДАЛКА ИЗОБРАЖЕНИЯ
         this.imgTitle = this.imgModal.querySelector('.imgmodal__title');
         this.openedImg = this.imgModal.querySelector('.imgmodal__img');
-
         this._setEventListeners();
-        
-        return elCard;
+    
+        return this.elCard;
         
     }
+    
 }
