@@ -7,7 +7,6 @@
     <meta name="description" content="Место - Россия">
     <meta name="keywords" content="Россия, Путешествия, Места">
     <meta name="author" content="Олег Коваленко">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Место - Россия</title>
 </head>
 
@@ -36,7 +35,7 @@
                 &copy; 2020 Место Россия
             </p>
         </footer>
-        <div class="modal">
+        <div class="modal" id="editmodal">
             <form action="#" class="form form__valid" name="form">
                 <button class="form__close-button" type="button"></button>
                 <h2 class="form__title">Редактировать профиль</h2>
@@ -64,7 +63,7 @@
         </div>
         <div class="modal" id="imgmodal">
             <div class="imgmodal__position">
-                <button class="imgmodal__close-button" type="button"></button>
+                <button class="imgmodal__close-button form__close-button" type="button"></button>
                 <img class="imgmodal__img">
                 <h2 class="imgmodal__title"></h2>
             </div>
@@ -80,7 +79,7 @@
             </div>
         </div>
     </template>
-    <script type="module" src="./js/index.js"></script>
+    
 </body>
 
 </html>

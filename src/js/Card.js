@@ -1,21 +1,17 @@
 export class Card {
-    constructor(data, templateSelector, imgModal, toggleModalVisible) {
+    constructor(data, templateSelector, handleCardClick) {
         this.data = data;
         this.templateSelector = templateSelector;
-        this.imgModal = imgModal;
-        this.toggleModalVisible = toggleModalVisible;
+        this.handleCardClick = handleCardClick;
         
     }
 
-    _handleLike(evt){
+    _handleLike(evt) {
         evt.target.classList.toggle('element__like_black');
     }
 
     _handleImg(evt) {
-        this.openedImg.setAttribute('src', this.data.link);
-        this.openedImg.setAttribute('alt', this.data.title);
-        this.imgTitle.textContent = this.data.title;
-        this.toggleModalVisible(this.imgModal);
+        this.handleCardClick(this.imgModal);
     }
 
     _handleRemove(evt) {
@@ -30,7 +26,7 @@ export class Card {
             this._handleLike(evt);
         });
         this.elImg.addEventListener('click', (evt) => {
-            this._handleImg(evt);
+            this.handleCardClick(this.data);
         });
     }
 
@@ -47,10 +43,6 @@ export class Card {
         this.elImg.src = this.data.link;
         this.elImg.alt = this.data.title;
         
-
-        //МОДАЛКА ИЗОБРАЖЕНИЯ
-        this.imgTitle = this.imgModal.querySelector('.imgmodal__title');
-        this.openedImg = this.imgModal.querySelector('.imgmodal__img');
         this._setEventListeners();
     
         return this.elCard;
