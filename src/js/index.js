@@ -6,8 +6,6 @@ import { PopupWithForm } from "./PopupWithForm.js";
 import { PopupWithImage } from "./PopupWithImage.js";
 import { UserInfo } from "./UserInfo.js";
 
-
-
 //ПЕРЕМЕНКИ ПРОФАЙЛА
 const openModalButton = document.querySelector('.profile__edit-btn');
 const closeModalButton = document.querySelector('.form__close-button');
@@ -48,7 +46,7 @@ const renderer = data => {
     }
 
     const card = new Card(data, '.template', handleCardClick);
-    return card.createCard();
+    return card.getView();
 };
 
 const sectionData = {
@@ -73,17 +71,10 @@ const settings = {
     errorClass: 'form__error_visible'
     }
 
-const createCardForm = document.querySelector('.form');
-const createCardAddForm = document.querySelector('.addform');
-
 //ПЕРЕМЕНКИ СОЗДАНИЯ КАРТОЧКИ
 const openAddButton = document.querySelector('.profile__add-btn');
-const closeAddButton = document.getElementById('add-close-button');
-const creatAddButton = document.querySelector('.addform__submit');
-const addModal = document.getElementById('addmodal');
 const addForm = document.querySelector('.addform');
-const addPlace = document.querySelector('.addform__input_place');
-const addLink = document.querySelector('.addform__input_link');
+
 
 function saveForm(formData) {
     userInfo.setUserInfo(
@@ -97,7 +88,7 @@ function addFormCallback(formData) {
         title: formData['input_place'],
         link: formData['input_link']
     });
-    section.addItem(item);
+    section.addItem(item, false);
     addPopup.close();
     };
 
@@ -120,9 +111,6 @@ openModalButton.addEventListener('click', () => {
 openAddButton.addEventListener('click', () => {
     addPopup.open();
 });
-
-const elementsBlock = document.querySelector('.elements');
-const Template = document.querySelector('.template');
 
 const formValidator = new FormValidator(settings, form);
 const addFormValidator = new FormValidator(settings, addForm);

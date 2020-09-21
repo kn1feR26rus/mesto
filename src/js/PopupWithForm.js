@@ -8,11 +8,11 @@ export class PopupWithForm extends Popup {
     }
 
     _getInputValues() {
-        const dict = {};
+        const _formValues = {};
         this.inputs.forEach( input => {
-            dict[input.id] = input.value;
+            _formValues[input.id] = input.value;
         })
-        return dict;    
+        return _formValues;    
     }
 
     setEventListeners() {

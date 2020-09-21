@@ -3,7 +3,6 @@ export class Card {
         this.data = data;
         this.templateSelector = templateSelector;
         this.handleCardClick = handleCardClick;
-        
     }
 
     _handleLike(evt) {
@@ -30,23 +29,25 @@ export class Card {
         });
     }
 
-    createCard() {
-        const Template = document.querySelector(this.templateSelector);
-        this.elCard = Template.content.cloneNode(true);
-        this.elDelete = this.elCard.querySelector('.element__delete');
-        this.elLike = this.elCard.querySelector('.element__like');
-        this.elImg = this.elCard.querySelector('.element__image');
-        this.elTitle = this.elCard.querySelector('.element__text');
-       
+    _getTemplate() {
+        const template = document.querySelector(this.templateSelector);
+        return template.content.cloneNode(true);
+        }
 
+    getView() {
+        const elCard = this._getTemplate();
+        this.elDelete = elCard.querySelector('.element__delete');
+        this.elLike = elCard.querySelector('.element__like');
+        this.elImg = elCard.querySelector('.element__image');
+        this.elTitle = elCard.querySelector('.element__text');
+       
         this.elTitle.innerText = this.data.title;
         this.elImg.src = this.data.link;
         this.elImg.alt = this.data.title;
         
         this._setEventListeners();
-    
-        return this.elCard;
-        
+
+        return elCard;
     }
     
 }

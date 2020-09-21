@@ -7,9 +7,13 @@ export class Section {
         
     }
 
-    addItem(element) {
-        this._container.prepend(element);
-      }
+    addItem(element, isArray) {
+        if (isArray) { 
+            this._container.append(element); 
+          } else { 
+            this._container.prepend(element); 
+          } 
+        }
 
     clear() {
         this._container.innerHTML = '';
@@ -18,7 +22,7 @@ export class Section {
     renderer() {
         this._renderedItems.forEach( item => {
             const element = this._renderer(item)
-            this.addItem(element)
+            this.addItem(element, true)
             })
     }
 
