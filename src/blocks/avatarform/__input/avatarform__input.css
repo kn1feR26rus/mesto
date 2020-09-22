@@ -8,3 +8,16 @@
     border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
+
+
+@media all and (max-width: 550px) {
+    .avatarform__input {
+       width: 260px;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .avatarform__input {
+       width: 200px;
+    }
+}

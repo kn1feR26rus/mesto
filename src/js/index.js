@@ -52,7 +52,25 @@ const renderer = data => {
 
     }
 
-    const card = new Card(data, '.template', handleCardClick, handleRemoveClick);
+    const handleLikeClick = (isLiked, cardId) => {
+        const sendRequest = (isLiked, cardId) => {
+            if (isLiked) {
+                return api.setLike(cardId)
+            } else {
+                return api.deleteLike(cardId)
+            }
+        }
+
+        sendRequest(isLiked, cardId)
+            .then(cardData => {
+                card.updateLikeCount(cardData.likes.length);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    const card = new Card(data, '.template', handleCardClick, handleRemoveClick, userInfo, handleLikeClick);
 
     return card.getView();
 };
@@ -96,7 +114,7 @@ function saveForm(formData) {
                 updatedProfile.name,
                 updatedProfile.about
             );
-            
+
             editPopup.hideLoading();
             editPopup.close();
         })
@@ -114,7 +132,7 @@ function addFormCallback(formData) {
         .then(newCard => {
             const item = renderer(newCard);
             section.addItem(item, false);
-            
+
             addPopup.hideLoading();
             addPopup.close();
         })
@@ -139,10 +157,19 @@ function avatarPopupCallback(formData) {
 }
 
 function deleteFormCallback(formData) {
-    // ToDo delete card
-    console.log(formData);
-
-    deletePopup.close();
+    const cardId = formData['imgIdInput']
+    deletePopup.showLoading();
+    api.deleteCard(cardId)
+        .then(data => {
+            console.log(data)
+            const deleteCard = document.querySelector("#card-" + cardId);
+            deleteCard.remove();
+            deletePopup.hideLoading();
+            deletePopup.close();
+        })
+        .catch((err) => {
+            console.log(err); // выведем ошибку в консоль
+        })
 };
 
 
@@ -195,22 +222,24 @@ api.getUserInfo()
             data.name,
             data.about
         )
-        userInfo.setUserAvatarUrl(data.avatar)
+        userInfo.setUserAvatarUrl(data.avatar);
+        userInfo.setUserId(data._id);
         console.log(data)
+
+        api.getInitialCards()
+            .then(cards => {
+                const sectionData = {
+                    items: cards,
+                    renderer: renderer
+                }
+                section = new Section(sectionData, elementContainerSelector);
+                section.renderer();
+            })
+            .catch((err) => {
+                console.log(err); // выведем ошибку в консоль
+            });
     })
     .catch((err) => {
         console.log(err); // выведем ошибку в консоль
     });
 
-api.getInitialCards()
-    .then(cards => {
-        const sectionData = {
-            items: cards,
-            renderer: renderer
-        }
-        section = new Section(sectionData, elementContainerSelector);
-        section.renderer();
-    })
-    .catch((err) => {
-        console.log(err); // выведем ошибку в консоль
-    });

@@ -15,3 +15,15 @@
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
 }
+
+@media all and (max-width: 550px) {
+    .deleteform {
+       width: 280px;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .deleteform {
+       width: 240px;
+    }
+}

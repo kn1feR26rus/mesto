@@ -16,3 +16,18 @@
     outline: none;
     outline-offset: 0;
 }
+
+@media all and (max-width: 550px) {
+    .deleteform__submit {
+       width: 260px;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .deleteform__submit {
+        width: 200px;
+        height: 40px;
+        margin-bottom: 30px;
+        margin-top: 6px;
+    }
+}

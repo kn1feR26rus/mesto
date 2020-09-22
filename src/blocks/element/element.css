@@ -8,6 +8,7 @@
 @import url(./__delete/element__delete.css);
 @import url(./__likecase/element__likecase.css);
 @import url(./__like-counter/element__like-counter.css);
+@import url(./__delete/_hide/element__delete_hide.css);
 
 
 .element {

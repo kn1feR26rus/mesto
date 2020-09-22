@@ -4,6 +4,27 @@
     line-height: 29px;
     color: black;
     margin-top: 34px;
-    margin-left: 36px;
     margin-bottom: 38px;
+    margin-left: 36px;
+}
+
+@media all and (max-width: 550px) {
+    .deleteform__title {
+       padding-left: 8px;
+       text-align: center;
+       margin-left: 0;
+    }
+}
+
+
+@media all and (max-width: 320px) {
+    .deleteform__title {
+        font-weight: 900;
+        font-size: 18px;
+        line-height: 22px;
+        padding: 0;
+        margin-top: 30px;
+        margin-bottom: 36px;
+        margin-left: 36px;
+    }
 }
