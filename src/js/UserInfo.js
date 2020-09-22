@@ -2,6 +2,7 @@ export class UserInfo {
     constructor(selectors) {
         this.userName = document.querySelector(selectors.name);
         this.userInfo = document.querySelector(selectors.prof);
+        this.userAvatar = document.querySelector(selectors.avatar);
     }
     getUserInfo() {
         return {
@@ -13,5 +14,9 @@ export class UserInfo {
     setUserInfo(newUserName, newUserInfo) {
         this.userName.textContent = newUserName;
         this.userInfo.textContent = newUserInfo;
+    }
+
+    setUserAvatarUrl(newAvatar) {
+        this.userAvatar.setAttribute('src', newAvatar);
     }
 }

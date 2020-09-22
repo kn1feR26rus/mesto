@@ -17,7 +17,7 @@
         </header>
         <main class="main">
             <section class="profile">
-                <img class="profile__avatar" src="./images/profile__avatar.jpg" alt="Аватар">
+                <img class="profile__avatar" id="avatar" src="./images/profile__avatar.jpg" alt="Аватар">
                 <div class="profile__info">
                     <div class="profile__info-text">
                         <h1 class="profile__fullname">Жак-Ив Кусто</h1>
@@ -68,6 +68,22 @@
                 <h2 class="imgmodal__title"></h2>
             </div>
         </div>
+        <div class="modal" id="deletemodal">
+            <form action="#" class="deleteform" name="deleteform">
+                <input type="hidden" id="imgIdInput">
+                <button class="deletemodal__close-button form__close-button" type="button"></button>
+                <h2 class="deleteform__title">Вы уверены?</h2>
+                <button class="deleteform__submit form__submit-button" type="submit">Да</button>
+            </form>
+        </div>
+        <div class="modal" id="avatarmodal">
+            <form action="#" class="avatarform" name="avatarform">
+                <button class="avatarmodal__close-button form__close-button" type="button"></button>
+                <h2 class="avatarform__title">Обновить аватар</h2>
+                <input type="text" class="avatarform__input avatarform__input_place form__input" value="" id="input_avatarlink" required placeholder="https://somewebsite.com/someimage.jpg"> 
+                <button class="avatarform__submit form__submit-button" type="submit">Сохранить</button>
+            </form>
+        </div>
     </div>
     <template class="template">
         <div class="element">
@@ -75,7 +91,10 @@
             <img class="element__image">
             <div class="element__bot">
                 <h2 class="element__text"></h2>
-                <button type="button" class="element__like"></button>
+                <div class="element__likecase">
+                    <button type="button" class="element__like"></button>
+                    <span class="element__like-counter"></span>
+                </div>
             </div>
         </div>
     </template>

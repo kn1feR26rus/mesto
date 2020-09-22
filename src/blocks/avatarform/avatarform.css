@@ -1,0 +1,20 @@
+@import url(./__title/avatarform__title.css);
+@import url(./__input/avatarform__input.css);
+@import url(./__submit/avatarform__submit.css);
+
+
+.avatarform {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 430px;
+    height: 272px;
+    background-color: white ;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-style: normal;
+    color: white;
+    z-index: 11;
+    cursor: default;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}

@@ -1,0 +1,17 @@
+@import url(./__submit/deleteform__submit.css);
+@import url(./__title/deleteform__title.css);
+
+.deleteform {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 430px;
+    height: 181px;
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-style: normal;
+    background-color: white;
+    z-index: 11;
+    cursor: default;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}

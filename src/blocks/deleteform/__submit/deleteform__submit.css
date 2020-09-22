@@ -1,0 +1,18 @@
+.deleteform__submit {
+    width: 358px;
+    height: 50px;
+    margin: 0 auto;
+    margin-bottom: 36px;
+    background-color: black;
+    color: white;
+    justify-content: center;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    box-shadow: none;
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    outline-offset: 0;
+}

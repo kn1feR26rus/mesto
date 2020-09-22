@@ -5,14 +5,16 @@ export class PopupWithForm extends Popup {
         this._submitCallback = submitCallback;
         this.inputs = this._popupContainer.querySelectorAll('input');
         this.form = this._popupContainer.querySelector('form');
+        this._submitButton = this._popupContainer.querySelector('.form__submit-button');
+        this._submitButtonTitle = this._submitButton.textContent;
     }
 
     _getInputValues() {
         const _formValues = {};
-        this.inputs.forEach( input => {
+        this.inputs.forEach(input => {
             _formValues[input.id] = input.value;
         })
-        return _formValues;    
+        return _formValues;
     }
 
     setEventListeners() {
@@ -26,8 +28,16 @@ export class PopupWithForm extends Popup {
 
     close() {
         super.close();
-        this.inputs.forEach( input => {
+        this.inputs.forEach(input => {
             input.value = '';
         })
+    }
+
+    showLoading() {
+        this._submitButton.textContent = "Сохранение...";
+    }
+
+    hideLoading() {
+        this._submitButton.textContent = this._submitButtonTitle;
     }
 }
