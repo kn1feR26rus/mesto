@@ -1,7 +1,7 @@
 # Проект 4: Место
 
 
-https://kn1fer26rus.github.io/mesto/index.html
+https://kn1fer26rus.github.io/mesto/src/index.html
 _____________________
 
 Данный проект реализован в рамках обучения на курсах web-программирования в Яндекс.Практикуме.
