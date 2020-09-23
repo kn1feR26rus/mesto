@@ -11,10 +11,16 @@ export class Card {
 
 
     _handleLike(evt) {
-        evt.target.classList.toggle('element__like_black');
-
         const isLiked = evt.target.classList.contains('element__like_black');
-        this.handleLikeClick(isLiked, this.data._id);
+        this.handleLikeClick(!isLiked, this.data._id);
+    }
+
+    setLikeState(isLiked) {
+        if (isLiked) {
+            this.elLike.classList.add('element__like_black');
+        } else {
+            this.elLike.classList.remove('element__like_black');
+        }
     }
 
     _handleImg(evt) {
@@ -25,7 +31,7 @@ export class Card {
         // evt.target.closest('.element').remove();
 
         const id = this.data._id; // to do привязать модель
-        this.handleRemoveClick(id)
+        this.handleRemoveClick(id, this)
     };
 
     _setEventListeners() {
@@ -49,11 +55,14 @@ export class Card {
         this.elCounter.textContent = newLikeCount
     }
 
+    remove() {
+        this.container.remove();
+    }
 
     getView() {
         const elCard = this._getTemplate();
-        const container = elCard.querySelector('.element');
-        container.id = 'card-' + this.data._id;
+        this.container = elCard.querySelector('.element');
+        this.container.id = 'card-' + this.data._id;
 
         this.elDelete = elCard.querySelector('.element__delete');
         this.elLike = elCard.querySelector('.element__like');
@@ -82,5 +91,4 @@ export class Card {
 
         return elCard;
     }
-
 }

@@ -1,53 +1,43 @@
-import '../pages/index.css';
-import { Card } from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
-import { Section } from "./Section.js";
-import { PopupWithForm } from "./PopupWithForm.js";
-import { PopupWithImage } from "./PopupWithImage.js";
-import { UserInfo } from "./UserInfo.js";
-import { Api } from "./Api.js";
+import './index.css';
+import { Card } from "../js/Card.js";
+import { FormValidator } from "../js/FormValidator.js";
+import { Section } from "../js/Section.js";
+import { PopupWithForm } from "../js/PopupWithForm.js";
+import { PopupWithImage } from "../js/PopupWithImage.js";
+import { UserInfo } from "../js/UserInfo.js";
+import { Api } from "../js/Api.js";
 
 //ПЕРЕМЕНКИ ПРОФАЙЛА
 const openModalButton = document.querySelector('.profile__edit-btn');
-const closeModalButton = document.querySelector('.form__close-button');
 const form = document.querySelector('.form');
 const inputName = document.querySelector('.form__input_name');
 const inputProf = document.querySelector('.form__input_prof');
 const elementContainerSelector = '.elements';
-const elements = [
-    {
-        title: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        title: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        title: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        title: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        title: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        title: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
+
 
 const renderer = data => {
     const handleCardClick = imgData => {
         imgPopup.open(imgData)
     }
-    const handleRemoveClick = imgId => {
+    const handleRemoveClick = (imgId, card) => {
         const inputId = document.querySelector('#imgIdInput');
         inputId.value = imgId;
+        
+        const deleteCardFormCallback = (formData) => {
+            const cardId = formData['imgIdInput']
+           
+            deletePopup.showLoading();
+            api.deleteCard(cardId)
+                .then(data => {
+                    сard.remove();
+                    deletePopup.hideLoading();
+                    deletePopup.close();
+                })
+                .catch((err) => {
+                    console.log(err); // выведем ошибку в консоль
+                })
+        };
+        deletePopup.setSubmitHandler(deleteCardFormCallback);
         deletePopup.open();
 
     }
@@ -64,6 +54,7 @@ const renderer = data => {
         sendRequest(isLiked, cardId)
             .then(cardData => {
                 card.updateLikeCount(cardData.likes.length);
+                card.setLikeState(isLiked);
             })
             .catch((err) => {
                 console.log(err);
@@ -158,6 +149,7 @@ function avatarPopupCallback(formData) {
 
 function deleteFormCallback(formData) {
     const cardId = formData['imgIdInput']
+    
     deletePopup.showLoading();
     api.deleteCard(cardId)
         .then(data => {

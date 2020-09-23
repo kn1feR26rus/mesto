@@ -17,6 +17,10 @@ export class PopupWithForm extends Popup {
         return _formValues;
     }
 
+    setSubmitHandler(sumbitCallback) {
+        this._submitCallback = sumbitCallback;
+    }
+
     setEventListeners() {
         super.setEventListeners();
         this.form.addEventListener('submit', (event) => {
