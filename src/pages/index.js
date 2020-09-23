@@ -20,26 +20,19 @@ const renderer = data => {
         imgPopup.open(imgData)
     }
     const handleRemoveClick = (imgId, card) => {
-        const inputId = document.querySelector('#imgIdInput');
-        inputId.value = imgId;
-        
-        const deleteCardFormCallback = (formData) => {
-            const cardId = formData['imgIdInput']
-           
+        deletePopup.setSubmitHandler(formData => {
             deletePopup.showLoading();
-            api.deleteCard(cardId)
+            api.deleteCard(imgId)
                 .then(data => {
-                    сard.remove();
+                    card.remove();
                     deletePopup.hideLoading();
                     deletePopup.close();
                 })
                 .catch((err) => {
                     console.log(err); // выведем ошибку в консоль
                 })
-        };
-        deletePopup.setSubmitHandler(deleteCardFormCallback);
+        })
         deletePopup.open();
-
     }
 
     const handleLikeClick = (isLiked, cardId) => {
@@ -149,7 +142,7 @@ function avatarPopupCallback(formData) {
 
 function deleteFormCallback(formData) {
     const cardId = formData['imgIdInput']
-    
+
     deletePopup.showLoading();
     api.deleteCard(cardId)
         .then(data => {
